@@ -13,8 +13,9 @@ import lombok.NoArgsConstructor;
 public class Plant {
 
 	@Id
-	private Integer plantId;
+	private String plantId;
 	private String plantName;
 	private String city;
 	private String state;
+	private String status = "active";
 }

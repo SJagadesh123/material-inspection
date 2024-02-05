@@ -20,8 +20,8 @@
 <br>
 <br>
 	<ul>
-		<li><a href="/material-inspection/add-plant">Add Plant</a></li>
-		<li><a href="/material-inspection/search-plant">Search Plant</a></li>
+		<li><a href="/material-inspection/plant/new">Add Plant</a></li>
+		<li><a href="/material-inspection/plant/search">Show All</a></li>
 	</ul>
 
 </body>

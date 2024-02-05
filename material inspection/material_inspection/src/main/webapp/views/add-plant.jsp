@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/add.css">
-<title>Add Vendor</title>
+<title>Add Plant</title>
 <style>
 h3 {
 	text-align: center;
@@ -29,24 +29,23 @@ h3 {
 <body>
 
 	<c:choose>
-		<c:when test="${vendorById eq null}">
-			<form:form action="add-vendor" method="post" class="form"
-				modelAttribute="vendor">
-				<h3>Add Vendor</h3>
+		<c:when test="${plantById eq null}">
+			<form:form action="add-plant" method="post" class="form"
+				modelAttribute="plant">
+				<h3>Add Plant</h3>
 
 				<table>
 					<tr>
-						<td><label>Vendor Name *</label></td>
-						<td><form:input type="text" path="vendorName"
-								required="required" /></td>
-						<td><form:errors path="vendorName"></form:errors></td>
+						<td><label>Plant Id *</label></td>
+						<td><form:input type="text" path="plantId"
+								required="required"/></td>
+
 					</tr>
 					<tr>
-						<td><label>Vendor email *</label></td>
-						<td><form:input type="text" path="email" required="required" /></td>
-						<td><form:errors path="email"></form:errors></td>
+						<td><label>Plant Name *</label></td>
+						<td><form:input type="text" path="plantName"
+								required="required" /></td>
 					</tr>
-
 
 					<tr>
 						<td><label> State *</label></td>
@@ -57,19 +56,18 @@ h3 {
 								</c:forEach>
 
 							</form:select></td>
-						<td><form:errors path="state"></form:errors></td>
 					</tr>
 					<tr>
 						<td><label>City *</label></td>
 						<td><form:input type="text" required="required" path="city" /></td>
-						<td><form:errors path="city"></form:errors></td>
+
 					</tr>
 
 					<tr>
 						<td><button type="submit">Add</button></td>
 						<td><button type="reset">Reset</button></td>
 						<td><button type="button"
-								onclick="window.location.href='/material-inspection/vendor'">Cancel</button></td>
+								onclick="window.location.href='/material-inspection/plant'">Cancel</button></td>
 					</tr>
 
 				</table>
@@ -78,32 +76,29 @@ h3 {
 			</form:form>
 		</c:when>
 		<c:otherwise>
-			<form:form action="add-vendor" method="post" class="form"
-				modelAttribute="vendorById">
-				<h3>Update Vendor</h3>
+			<form:form action="add-plant" method="post" class="form"
+				modelAttribute="plantById">
+				<h3>Update Plant</h3>
 
 				<table>
 					<tr>
-						<td><form:input type="hidden" path="vendorId"
-								required="required" value="${vendorById.getVendorId()}" /></td>
+						<td><label>Plant Id *</label></td>
+						<td><form:input type="text" path="plantId"
+								required="required" value="${plantById.getPlantId()}"/></td>
+
 					</tr>
 					<tr>
 						<td><label>Vendor Name *</label></td>
-						<td><form:input type="text" path="vendorName"
-								required="required" value="${vendorById.getVendorName()}" /></td>
+						<td><form:input type="text" path="plantName"
+								required="required" value="${plantById.getPlantName()}" /></td>
 					</tr>
-					<tr>
-						<td><label>Vendor email *</label></td>
-						<td><form:input type="text" path="email" required="required"
-								value="${vendorById.getEmail()}" /></td>
 
-					</tr>
 
 
 					<tr>
 						<td><label> State *</label></td>
 						<td><form:select path="state" required="required">
-								<option selected>${vendorById.getState()}</option>
+								<option selected>${plantById.getState()}</option>
 								<c:forEach var="state" items="${States.values()}">
 									<option value="${state.getStateName()}">${state}</option>
 								</c:forEach>
@@ -113,7 +108,7 @@ h3 {
 					<tr>
 						<td><label>City *</label></td>
 						<td><form:input type="text" required="required" path="city"
-								value="${vendorById.getCity()}" /></td>
+								value="${plantById.getCity()}" /></td>
 
 					</tr>
 
@@ -121,7 +116,7 @@ h3 {
 						<td><button type="submit">Add</button></td>
 						<td><button type="reset">Reset</button></td>
 						<td><button type="button"
-								onclick="window.location.href='/material-inspection/vendor/search'">Cancel</button></td>
+								onclick="window.location.href='/material-inspection/plant/search'">Cancel</button></td>
 					</tr>
 
 				</table>

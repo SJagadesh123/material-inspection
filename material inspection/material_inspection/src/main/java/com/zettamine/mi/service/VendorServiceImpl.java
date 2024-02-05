@@ -35,7 +35,7 @@ public class VendorServiceImpl implements VendorService {
 	@Override
 	public List<Vendor> getAll() {
 
-		return vendorRepo.findAll();
+		return vendorRepo.findAllByStatus("active");
 	}
 
 	@Override
